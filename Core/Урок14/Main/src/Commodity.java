@@ -20,4 +20,19 @@ public class Commodity {
                 ", weight=" + weight +
                 '}';
     }
+
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        if (!super.equals(object)) return false;
+        Commodity commodity = (Commodity) object;
+        return length == commodity.length &&
+                width == commodity.width &&
+                weight == commodity.weight &&
+                java.util.Objects.equals(name, commodity.name);
+    }
+
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), name, length, width, weight);
+    }
 }
