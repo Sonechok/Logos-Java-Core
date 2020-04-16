@@ -1,0 +1,6 @@
+age
+height
+gender
+experience
+nameOfCompanies
+position
