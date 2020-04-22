@@ -71,9 +71,10 @@ public class Faction {
             System.out.println("Фракцій пуста");
         } else {
             int counter = 0;
-            for (int i = 0; i<deputyArray.size(); i++) {
-                if (deputyArray.get(i).firstName.equals(firstName) && deputyArray.get(i).lastName.equals(lastName)) {
+            for (int i=0; i <deputyArray.size();i++){
+                if (deputyArray.get(i).firstName.equals(firstName) && deputyArray.get(i).lastName.equals(lastName)){
                     deputyArray.remove(i);
+                    i--;
                     System.out.println("Депутат вилучений");
                     counter++;
                 }

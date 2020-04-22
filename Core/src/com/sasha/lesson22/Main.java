@@ -7,9 +7,9 @@ import java.util.function.Supplier;
 
 public class Main {
     public static void main(String[] args) {
-        task1();
         Random random = new Random();
         double data = random.nextDouble();
+        task1();
         task2(data);
         task3();
         task4();

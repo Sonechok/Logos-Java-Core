@@ -1,12 +1,11 @@
 package com.sasha.lesson12;
 
-import java.util.Scanner;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Months> listOfMonths = new ArrayList<Months>();
-        ArrayList<Seasons> listOfSeasons = new ArrayList<Seasons>();
+        ArrayList<Months> listOfMonths = new ArrayList<>();
+        ArrayList<Seasons> listOfSeasons = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         Months[] months = Months.values();
         for (int i = 0; i < months.length; i++) {
@@ -32,11 +31,11 @@ public class Main {
         switch (action) {
             case 1:
                 System.out.println("Уведіть місяць (на англійській): ");
+                scanner.nextLine();
                 String month = scanner.nextLine();
-                month = scanner.nextLine();
                 int count = 0;
-                for (int i = 0; i < listOfMonths.size(); i++) {
-                    if (listOfMonths.get(i).toString().equalsIgnoreCase(month)) {
+                for (Months listOfMonth : listOfMonths) {
+                    if (listOfMonth.toString().equalsIgnoreCase(month)) {
                         count++;
                     }
                 }
@@ -48,44 +47,44 @@ public class Main {
                 break;
             case 2:
                 System.out.println("Уведіть пору року (на англійській)");
+                scanner.nextLine();
                 String season = scanner.nextLine();
-                season = scanner.nextLine();
-                for (int i = 0; i < listOfMonths.size(); i++) {
-                    if (listOfMonths.get(i).getSeason().toString().equalsIgnoreCase(season)) {
-                        System.out.println(listOfMonths.get(i));
+                for (Months listOfMonth : listOfMonths) {
+                    if (listOfMonth.getSeason().toString().equalsIgnoreCase(season)) {
+                        System.out.println(listOfMonth);
                     }
                 }
                 break;
             case 3:
                 System.out.println("Уведіть кількість днів");
                 int day = scanner.nextInt();
-                for (int i = 0; i < listOfMonths.size(); i++) {
-                    if (listOfMonths.get(i).getDay() == day) {
-                        System.out.println(listOfMonths.get(i));
+                for (Months listOfMonth : listOfMonths) {
+                    if (listOfMonth.getDay() == day) {
+                        System.out.println(listOfMonth);
                     }
                 }
                 break;
             case 4:
                 System.out.println("Уведіть кількість днів");
                 day = scanner.nextInt();
-                for (int i = 0; i < listOfMonths.size(); i++) {
-                    if (listOfMonths.get(i).getDay() < day) {
-                        System.out.println(listOfMonths.get(i));
+                for (Months listOfMonth : listOfMonths) {
+                    if (listOfMonth.getDay() < day) {
+                        System.out.println(listOfMonth);
                     }
                 }
                 break;
             case 5:
                 System.out.println("Уведіть кількість днів");
                 day = scanner.nextInt();
-                for (int i = 0; i < listOfMonths.size(); i++) {
-                    if (listOfMonths.get(i).getDay() > day) {
-                        System.out.println(listOfMonths.get(i));
+                for (Months listOfMonth : listOfMonths) {
+                    if (listOfMonth.getDay() > day) {
+                        System.out.println(listOfMonth);
                     }
                 }
                 break;
             case 6:
                 System.out.println("Уведіть пору року (на англійській)");
-                season = scanner.nextLine();
+                scanner.nextLine();
                 season = scanner.nextLine();
                 for (int i = 0; i < listOfSeasons.size(); i++) {
                     if (listOfSeasons.get(i).toString().equalsIgnoreCase(season)) {
@@ -99,7 +98,7 @@ public class Main {
                 break;
             case 7:
                 System.out.println("Уведіть пору року (на англійській)");
-                season = scanner.nextLine();
+                scanner.nextLine();
                 season = scanner.nextLine();
                 for (int i = 0; i < listOfSeasons.size(); i++) {
                     if (listOfSeasons.get(i).toString().equalsIgnoreCase(season)) {
@@ -112,26 +111,26 @@ public class Main {
                 }
                 break;
             case 8:
-                for (int i = 0; i < listOfMonths.size(); i++) {
-                    if (listOfMonths.get(i).getDay() % 2 == 0) {
-                        System.out.println(listOfMonths.get(i));
+                for (Months ofMonth : listOfMonths) {
+                    if (ofMonth.getDay() % 2 == 0) {
+                        System.out.println(ofMonth);
                     }
                 }
                 break;
             case 9:
-                for (int i = 0; i < listOfMonths.size(); i++) {
-                    if (listOfMonths.get(i).getDay() % 2 != 0) {
-                        System.out.println(listOfMonths.get(i));
+                for (Months listOfMonth : listOfMonths) {
+                    if (listOfMonth.getDay() % 2 != 0) {
+                        System.out.println(listOfMonth);
                     }
                 }
                 break;
             case 10:
                 System.out.println("Уведіть місяць (на англійській): ");
+                scanner.nextLine();
                 month = scanner.nextLine();
-                month = scanner.nextLine();
-                for (int i = 0; i < listOfMonths.size(); i++) {
-                    if (listOfMonths.get(i).toString().equalsIgnoreCase(month)) {
-                        if (listOfMonths.get(i).getDay() % 2 == 0) {
+                for (Months listOfMonth : listOfMonths) {
+                    if (listOfMonth.toString().equalsIgnoreCase(month)) {
+                        if (listOfMonth.getDay() % 2 == 0) {
                             System.out.println("Ta");
                         } else {
                             System.out.println("Ні");
@@ -143,7 +142,7 @@ public class Main {
                 System.out.println("Invalid data");
                 break;
         }
-        ArrayList<ArrayList<Car>> cars=new ArrayList();
+        ArrayList<ArrayList<Car>> cars=new ArrayList<>();
         int n = 1 + (int) (Math.random() * 5);
         int m = 1 + (int) (Math.random() * 5);
         ArrayList<String> materials = new ArrayList<>();

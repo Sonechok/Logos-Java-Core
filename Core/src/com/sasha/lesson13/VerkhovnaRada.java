@@ -20,6 +20,7 @@ public class VerkhovnaRada {
     }
 
     public void addFactionToArray(){
+        scanner.nextLine();
         System.out.println("Уведіть назву фракції");
         String nameOfFaction = scanner.nextLine();
         System.out.println("Уведіть кількість депутатів");
@@ -115,13 +116,22 @@ public class VerkhovnaRada {
 
     public void removeDeputy(){
         scanner.nextLine();
+        int counter=0;
         System.out.println("Процес вилучення депутата з фракції");
+        System.out.println("Уведіть назву фракції з якої потрібно видалити депутата");
+        String nameOfFaction = scanner.nextLine();
         System.out.println("Уведіть прізвище депутата, якого потрібно вилучити з фракції");
         String lastName = scanner.nextLine();
         System.out.println("Уведіть ім'я депутата, якого потрібно вилучити з фракції");
         String firstName = scanner.nextLine();
         for (Faction faction: factionArray){
-            faction.removeDeputyFromFaction(firstName, lastName);
+            if(faction.getNameOfFaction().equals(nameOfFaction)) {
+                faction.removeDeputyFromFaction(firstName, lastName);
+                counter++;
+            }
+        }
+        if (counter==0){
+            System.out.println("Такої фракції не існує");
         }
     }
 

@@ -20,43 +20,60 @@ public class Main {
             System.out.println("Уведіть 9, щоб вивести список хабарників в фракції");
             System.out.println("Уведіть 10, щоб вивести найбільшого хабарника в фракції");
             System.out.println("Уведіть будь-яку іншу цифру, щоб вийти з програми");
-            int action = scanner.nextInt();
-            switch (action) {
-                case 1:
-                    VerkhovnaRada.getInstance().addFactionToArray();
-                    break;
-                case 2:
-                    VerkhovnaRada.getInstance().removeFactionFromArray();
-                    break;
-                case 3:
-                    VerkhovnaRada.getInstance().printAllFaction();
-                    break;
-                case 4:
-                    VerkhovnaRada.getInstance().clearFaction();
-                    break;
-                case 5:
-                    VerkhovnaRada.getInstance().printFaction();
-                    break;
-                case 6:
-                    VerkhovnaRada.getInstance().addDeputyToFraction();
-                    break;
-                case 7:
-                    VerkhovnaRada.getInstance().removeDeputy();
-                    break;
-                case 8:
-                    VerkhovnaRada.getInstance().giveBribe();
-                    break;
-                case 9:
-                    VerkhovnaRada.getInstance().printBribeTakersInFaction();
-                    break;
-                case 10:
-                    VerkhovnaRada.getInstance().printTheBiggestBribeTakersInFaction();
-                    break;
-                default:
-                    System.out.println("Дякуємо, що відвідали Верховну Раду України");
-                    isProgramRunning = false;
-                    break;
-            }
+            System.out.println("Якщо не відбулося дії, повторно натисніть клавішу ENTER");
+//            try{
+                int action = scanner.nextInt();
+                switch (action) {
+                    case 1:
+                        scanner.nextLine();
+                        VerkhovnaRada.getInstance().addFactionToArray();
+                        break;
+                    case 2:
+                        scanner.nextLine();
+                        VerkhovnaRada.getInstance().removeFactionFromArray();
+                        break;
+                    case 3:
+                        scanner.nextLine();
+                        VerkhovnaRada.getInstance().printAllFaction();
+                        break;
+                    case 4:
+                        scanner.nextLine();
+                        VerkhovnaRada.getInstance().clearFaction();
+                        break;
+                    case 5:
+                        scanner.nextLine();
+                        VerkhovnaRada.getInstance().printFaction();
+                        break;
+                    case 6:
+                        scanner.nextLine();
+                        VerkhovnaRada.getInstance().addDeputyToFraction();
+                        break;
+                    case 7:
+                        scanner.nextLine();
+                        VerkhovnaRada.getInstance().removeDeputy();
+                        break;
+                    case 8:
+                        scanner.nextLine();
+                        VerkhovnaRada.getInstance().giveBribe();
+                        break;
+                    case 9:
+                        scanner.nextLine();
+                        VerkhovnaRada.getInstance().printBribeTakersInFaction();
+                        break;
+                    case 10:
+                        scanner.nextLine();
+                        VerkhovnaRada.getInstance().printTheBiggestBribeTakersInFaction();
+                        break;
+                    default:
+                        System.out.println("Дякуємо, що відвідали Верховну Раду України");
+                        isProgramRunning = false;
+                        break;
+                }
+//            } catch (Exception e){
+//                System.out.println(e.toString());
+//                System.out.println("Try again(");
+//                isProgramRunning=false;
+//            }
         }
     }
 }
