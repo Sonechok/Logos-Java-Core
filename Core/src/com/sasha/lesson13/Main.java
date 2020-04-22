@@ -21,7 +21,7 @@ public class Main {
             System.out.println("Уведіть 10, щоб вивести найбільшого хабарника в фракції");
             System.out.println("Уведіть будь-яку іншу цифру, щоб вийти з програми");
             System.out.println("Якщо не відбулося дії, повторно натисніть клавішу ENTER");
-//            try{
+           try{
                 int action = scanner.nextInt();
                 switch (action) {
                     case 1:
@@ -69,11 +69,11 @@ public class Main {
                         isProgramRunning = false;
                         break;
                 }
-//            } catch (Exception e){
-//                System.out.println(e.toString());
-//                System.out.println("Try again(");
-//                isProgramRunning=false;
-//            }
+           } catch (Exception e){
+                System.out.println(e.toString());
+                System.out.println("Try again(");
+                isProgramRunning=false;
+            }
         }
     }
 }
