@@ -1,8 +1,10 @@
-package com.sasha.lesson15;
+package com.sasha.lesson23;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
-public class Main {
+public class MainZooClub {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ZooClub zooClub = new ZooClub();

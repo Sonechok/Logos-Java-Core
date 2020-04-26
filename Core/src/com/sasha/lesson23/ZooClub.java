@@ -1,8 +1,10 @@
-package com.sasha.lesson15;
+package com.sasha.lesson23;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ZooClub {
     Map<Person, List<Animal>> map = new HashMap<>();
@@ -30,14 +32,11 @@ public class ZooClub {
             System.out.println("Such person doesn't exist");
         } else {
             int sizeOfAnimalList = animalList.size();
-            for (int i = 0; i < animalList.size(); i++) {
-                if (animalList.get(i).type.equals(typeOfAnimal) && animalList.get(i).name.equals(nameOfAnimal)) {
-                    animalList.remove(i);
-                    i--;
-                }
-            }
-            if (animalList.size() < sizeOfAnimalList) {
-                map.put(person, animalList);
+            Stream<Animal> stream = animalList.stream()
+                    .filter(animal -> !animal.name.equals(nameOfAnimal) && !animal.type.equals(typeOfAnimal));
+            List<Animal> animals = stream.collect(Collectors.toList());
+            if (animals.size() < sizeOfAnimalList) {
+                map.put(person, animals);
                 System.out.println("Animal removed");
             } else {
                 System.out.println("Such animal doesn't exist in this person");
@@ -46,14 +45,17 @@ public class ZooClub {
     }
 
     public void removeAnimalFromAllMembers(String typeOfAnimal){
+
         for (Map.Entry<Person, List<Animal>> entry: map.entrySet()){
             List<Animal> animalList = entry.getValue();
-            for (int i=0; i < animalList.size(); i++){
-                if(animalList.get(i).type.equals(typeOfAnimal)) {
-                    animalList.remove(i);
-                    map.put(entry.getKey(), animalList);
-                    System.out.println("Animal removed in " + entry.getKey().name);
-                }
+            Stream<Animal> stream = animalList.stream()
+                    .filter(animal -> !animal.type.equals(typeOfAnimal));
+            List<Animal> animals = stream.collect(Collectors.toList());
+            if (animals.size() < animalList.size()) {
+                map.put(entry.getKey(), animals);
+                System.out.println("Animal removed in " + entry.getKey().name);
+            } else {
+                System.out.println("Such animal doesn't exist in " + entry.getKey().name);
             }
         }
     }
@@ -62,9 +64,7 @@ public class ZooClub {
         for (Map.Entry<Person, List<Animal>> entry: map.entrySet()){
             System.out.println(entry.getKey().toString());
             System.out.println("Animals:");
-            for (Animal animal: entry.getValue()) {
-                System.out.println(animal.toString());
-            }
+            entry.getValue().forEach(animal -> System.out.println(animal.toString()));
         }
     }
 }
